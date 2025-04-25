@@ -4,15 +4,17 @@
 
 # 影刀RPA MCP Server
 
-
 [影刀RPA](https://www.yingdao.com):一个RPA低代码平台，一款人人可用的RPA自动化产品，能够将人从重复的劳动中解放出来。
 <br/>
 [影刀AI Power](https://www.yingdao.com/ai-power):一个AI低代码平台，能够快速创建AI智能体、AI工作流，帮助用户把AI用起来。
 
 影刀 RPA MCP Server 基于 Model Context Protocol (MCP) 实现，为影刀AI Power及其他可作为MCP Host的工具(如 Claude Desktop、Cursor 等)提供调用RPA的能力。
 
-
 同时支持SSE Server与Stdio Server两种模式。
+
+<a href="https://glama.ai/mcp/servers/@ying-dao/yingdao_mcp_server">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@ying-dao/yingdao_mcp_server/badge" alt="YingDao RPA Server MCP server" />
+</a>
 
 # 如何开始
 支持两种方式来运行影刀RPA
