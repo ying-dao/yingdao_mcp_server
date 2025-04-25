@@ -1,0 +1,48 @@
+{
+    "name": "yingdao-mcp-server",
+    "version": "0.0.1",
+    "description": "Mcp server for yingdao rpa, both sse and stdio mode",
+    "license": "MIT",
+    "author": "Automa AI Power(https://www.automa.site/)",
+    "homepage": "https://www.automa.site/",
+    "type": "module",
+    "bugs": "https://github.com/ying-dao/yingdao_mcp_server/issues",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ying-dao/yingdao_mcp_server.git"
+    },
+    "files": [
+        "dist"
+    ],
+    "bin": {
+        "yingdao-mcp-server": "dist/index.js"
+    },
+    "main": "dist/index.js",
+    "scripts": {
+        "build": "tsc && chmod +x dist/*.js",
+        "start": "node dist/index.js",
+        "start:server": "node dist/index.js --server",
+        "prepublishOnly": "npm run build"
+    },
+    "keywords": [
+        "yingdao",
+        "ai power",
+        "rpa",
+        "mcp"
+    ],
+    "dependencies": {
+        "@modelcontextprotocol/sdk": "^1.10.1",
+        "axios": "^1.8.4",
+        "cors": "^2.8.5",
+        "dotenv": "^16.5.0",
+        "express": "^4.18.2",
+        "i18next": "^23.7.11",
+        "react-i18next": "^13.5.0",
+        "uuid": "^9.0.0",
+        "zod": "^3.24.3"
+    },
+    "devDependencies": {
+        "@types/express": "^5.0.1",
+        "nodemon": "^2.0.22"
+    }
+}
