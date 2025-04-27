@@ -19,7 +19,7 @@
     },
     "main": "dist/index.js",
     "scripts": {
-        "build": "tsc && chmod +x dist/*.js",
+        "build": "tsc && shx chmod +x dist/*.js",
         "start": "node dist/index.js",
         "start:server": "node dist/index.js --server",
         "prepublishOnly": "npm run build"
@@ -39,7 +39,8 @@
         "i18next": "^23.7.11",
         "react-i18next": "^13.5.0",
         "uuid": "^9.0.0",
-        "zod": "^3.24.3"
+        "zod": "^3.24.3",
+        "shx": "^0.3.4"
     },
     "devDependencies": {
         "@types/express": "^5.0.1",
