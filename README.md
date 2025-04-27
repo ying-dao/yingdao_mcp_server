@@ -79,7 +79,7 @@ Clone the repository and build:
 
 ```bash
 git clone https://github.com/ying-dao/yingdao_mcp_server.git
-cd yingdao-mcp-server
+cd yingdao_mcp_server
 npm install
 npm run build
 ```
