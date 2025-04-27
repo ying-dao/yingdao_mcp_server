@@ -99,7 +99,7 @@ export abstract class BaseServer{
                 throw new Error(i18n.t('tool.queryApplist.error'));
             }
         });
-        this.server.tool('startJob', i18n.t('tool.startJob.description'), startJobSchema, async ({ robotUuid, accountName, robotClientGroupUuid, waitTimeoutSeconds, runTimeout, params }) => {
+        this.server.tool('startJob', i18n.t('tool.startJob.description'), startJobSchema, async ({ robotUuid, accountName,params }) => {
             try {
                 // Transform params from Record<string, any> to the expected array format
                 const transformedParams = params ? Object.entries(params).map(([name, value]) => ({
@@ -111,13 +111,11 @@ export abstract class BaseServer{
                 const result = await this.openApiService?.startJob({
                     robotUuid,
                     accountName,
-                    robotClientGroupUuid,
-                    waitTimeoutSeconds,
-                    runTimeout,
                     params: transformedParams
                 });
                 return { content: [{ type: 'text', text: JSON.stringify(result) }]};
             } catch (error) {
+                console.error(error);
                 throw new Error(i18n.t('tool.startJob.error'));
             }
         });

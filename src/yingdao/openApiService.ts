@@ -32,6 +32,7 @@ export class OpenApiService {
   }): Promise<AppListResponse> {
     try {
       const response = await this.client.post('/app/open/query/list', params);
+      console.log("response",response.data);
       return response.data.code === 200
         ? response.data.data
         :  response.data.msg ;
@@ -46,6 +47,7 @@ export class OpenApiService {
   }): Promise<RobotParamResponse> {
     try {
       const response = await this.client.post('/robot/v2/queryRobotParam', params);
+      console.log("response",response.data);
        return response.data.code === 200
         ? response.data.data
         :  response.data.msg ;
@@ -95,32 +97,9 @@ export class OpenApiService {
     if (!params.robotUuid) {
       throw new Error(i18n.t('rpaService.error.robotUuidRequired'));
     }
-
-    // Validate mutually exclusive parameters
-    if (params.accountName && params.robotClientGroupUuid) {
-      throw new Error(i18n.t('rpaService.error.accountNameAndGroupConflict'));
-    }
-
-    // Validate timeout range
-    if (params.waitTimeoutSeconds) {
-      if (params.waitTimeoutSeconds < 60 || params.waitTimeoutSeconds > 950400) {
-        throw new Error(i18n.t('rpaService.error.waitTimeoutRange'));
-      }
-    }
-
-    if (params.runTimeout) {
-      if (params.runTimeout < 60 || params.runTimeout > 950400) {
-        throw new Error(i18n.t('rpaService.error.runTimeoutRange'));
-      }
-    }
-
-    // Validate params length
-    if (params.params&&params.params && JSON.stringify(params.params).length > 8000) {
-      throw new Error(i18n.t('rpaService.error.paramsLengthExceeded'));
-    }
-
     try {
       const response = await this.client.post<JobStartResponse>('/dispatch/v2/job/start', params);
+      console.log("response",response.data);
       if (!response.data.success || response.data.code !== 200) {
         throw new Error(response.data.msg || i18n.t('rpaService.error.startJobFailed'));
       }
@@ -154,6 +133,7 @@ export class OpenApiService {
 
     try {
       const response = await this.client.post<ClientListResponse>('/dispatch/v2/client/list', params);
+      console.log("response",response.data);
       if (!response.data.success || response.data.code !== 200) {
         throw new Error(response.data.msg || i18n.t('rpaService.error.queryClientListFailed'));
       }

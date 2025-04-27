@@ -47,7 +47,6 @@ export const querySchema = {
     .optional()
     .default('30')
     .transform(Number)
-    .refine(n => n <= 100, i18n.t('schema.query.sizeRefine'))
     .describe(i18n.t('schema.query.size')),
     page: z.string()
     .optional()
@@ -64,14 +63,11 @@ export const startJobSchema = {
     robotClientGroupUuid: z.string().optional().describe(i18n.t('schema.startJob.robotClientGroupUuid')),
     waitTimeoutSeconds: z.number()
         .optional()
-        .refine(n => !n || (n >= 60 && n <= 950400), i18n.t('schema.startJob.waitTimeoutRefine'))
         .describe(i18n.t('schema.startJob.waitTimeoutSeconds')),
     runTimeout: z.number()
         .optional()
-        .refine(n => !n || (n >= 60 && n <= 950400), i18n.t('schema.startJob.runTimeoutRefine'))
         .describe(i18n.t('schema.startJob.runTimeout')),
     params: z.record(z.any()).optional()
-        .refine(obj => JSON.stringify(obj).length <= 8000, i18n.t('schema.startJob.paramsRefine'))
         .describe(i18n.t('schema.startJob.params'))
 } as const;
 
@@ -90,6 +86,5 @@ export const clientListSchema = {
     size: z.string()
         .default('30')
         .transform(Number)
-        .refine(n => n <= 100, i18n.t('schema.clientList.sizeRefine'))
         .describe(i18n.t('schema.clientList.size'))
 } as const;
