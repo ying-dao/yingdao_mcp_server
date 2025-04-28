@@ -1,6 +1,6 @@
 {
     "name": "yingdao-mcp-server",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Mcp server for yingdao rpa, both sse and stdio mode",
     "license": "MIT",
     "author": "Automa AI Power(https://www.automa.site/)",
