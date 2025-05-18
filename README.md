@@ -111,6 +111,15 @@ AI Power 客户端配置
 2. **queryApplist**: 查询RPA应用的列表
 3. **runApp**: 运行RPA应用
 
+
+
+## Running evals
+
+The evals package loads an mcp client that then runs the index.ts file, so there is no need to rebuild between tests. You can load environment variables by prefixing the npx command. Full documentation can be found [here](https://www.mcpevals.io/docs).
+
+```bash
+OPENAI_API_KEY=your-key  npx mcp-eval src/evals/evals.ts src/baseServer.ts
+```
 ## 开放API模式
 1. **uploadFile**: 上传文件到RPA平台
 2. **queryRobotParam**: 查询RPA应用参数
